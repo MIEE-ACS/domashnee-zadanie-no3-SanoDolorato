@@ -32,12 +32,20 @@ namespace domashnee_zadanie_no3
             string a = tbInput.Text;
             string result = a.ToString();
             string newresult = "";
+            newresult = Atbash(alphavit, result, newresult);
+            tbOutput.Text = newresult;
+
+        }
+
+        private static string Atbash(List<char> alphavit, string result, string newresult)
+        {
             for (int i = 0; i < result.Length; i++)
             {
 
                 int k = 0;
                 int reg = 0;//флаг для регистра
-                if (char.IsUpper(result, i)) {
+                if (char.IsUpper(result, i))
+                {
                     reg++;
 
                 }
@@ -50,18 +58,16 @@ namespace domashnee_zadanie_no3
                 }
                 if (reg > 0)
                     newresult += (alphavit[alphavit.Count - k - 1].ToString()).ToUpper();
-                else {
+                else
+                {
                     newresult += alphavit[alphavit.Count - k - 1];
 
                 }
 
             }
-           
-           
-                tbOutput.Text = newresult;
 
+            return newresult;
         }
-        
 
 
     }
