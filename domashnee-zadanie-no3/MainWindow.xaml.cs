@@ -28,21 +28,41 @@ namespace domashnee_zadanie_no3
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
             List<char> alphavit = new List<char> { 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь', 'ы', 'ъ', 'э', 'ю', 'я' };
-            
+
             string a = tbInput.Text;
             string result = a.ToString();
             string newresult = "";
-            for(int i=0;i<result.Length;i++)
+            for (int i = 0; i < result.Length; i++)
             {
+
                 int k = 0;
-                while(result[i]!=alphavit[k])
+                int reg = 0;//флаг для регистра
+                if (char.IsUpper(result, i)) {
+                    reg++;
+
+                }
+
+                string K = result[i].ToString().ToLower();
+
+                while ((result[i].ToString()).ToLower() != alphavit[k].ToString())
                 {
                     k++;
                 }
-                newresult += alphavit[alphavit.Count-k-1];
+                if (reg > 0)
+                    newresult += (alphavit[alphavit.Count - k - 1].ToString()).ToUpper();
+                else {
+                    newresult += alphavit[alphavit.Count - k - 1];
+
+                }
+
             }
-            tbOutput.Text = newresult;
+           
+           
+                tbOutput.Text = newresult;
 
         }
+        
+
+
     }
 }
