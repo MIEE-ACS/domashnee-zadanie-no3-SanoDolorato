@@ -33,10 +33,17 @@ namespace domashnee_zadanie_no3
             string result = a.ToString();
             string newresult = "";
             //надо понять, слово на русском или на английском
-            if (alphavit2.Contains(result[0])) 
-                newresult = Atbash(alphavit2, result, newresult);
-            else
-                newresult = Atbash(alphavit, result, newresult);
+            try
+            {
+                if (alphavit2.Contains(result[0]))
+                    newresult = Atbash(alphavit2, result, newresult);
+                else
+                    newresult = Atbash(alphavit, result, newresult);
+            }
+            catch
+            {
+                newresult = "Некорректные данные";
+            }
             tbOutput.Text = newresult;
 
         }
